@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/logo.png') }}"> -->
+    <title>Boosting</title>
+</head>
+<body>
+    <div class="main">
+        <div class="main-text">
+            <img src="{{ url_for('static', filename='images/logo.png') }}"   alt="logo" class="logo">
+            <h1>As soluções que a sua empresa precisa.</h1>
+            <p class="main-description">A melhor consultoria para impulsionar as suas vendas é aqui, na <b>Boosting.</b></p>
+            <button id="btn-schedule">Agende uma Reunião</button>
+        </div>
+        <div class="main-people-image">
+            <img src="{{ url_for('static', filename='images/pessoa.png') }}"  alt="pessoa" class="people">
+        </div>
+    </div>
+    <div class="content">
+        <div class="people-image">
+            <img src="{{ url_for('static', filename='images/pessoa.png') }}"  alt="pessoa" class="people">
+        </div>
+        <div class="about">
+            <h1>Sobre nós</h1>
+            <p>A Boosting. foi fundada por três amigos em Embu das Artes com o propósito de ajudar empresas a se destacarem em seus esforços de marketing digital.</p>
+        </div>
+        <div class="box">
+            <h1>Hey, você sabia que a análise de dados converte em <span class="text-gradient">mais vendas</span> para você?</h1>
+            <p class="box-description">A análise de dados desempenha um papel crucial no aumento das vendas e no crescimento dos negócios. Ao coletar e analisar dados relevantes, as empresas podem obter insights valiosos sobre seus clientes, mercado e desempenho, permitindo que tomem decisões mais informadas e estratégicas. <strong>E nisso, a <b>Boosting</b> entede</strong>.<br>Agende uma reunião para entender como alavancar suas vendas.</p>
+            <button id="btn-schedule">Agende uma Reunião</button>
+        </div>
+        <div class="contact">
+            <h3 class="contact-title">Envie uma mensagem</h3>
+            <form action="contact_send.php" method="POST">
+                <div class="form-content">
+                    <input type="text" id="nome" name="nome" required placeholder="Nome">
+                    <input type="email" id="email" name="email" required placeholder="E-mail">
+                    <textarea id="message" name="message" required placeholder="Digite sua mensagem..."></textarea>
+                    <button id="btn-send-message">Enviar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Style(css) -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap'); 
+
+:root {
+    --background-color: white;
+    --foreground-color-1: #6c00ff;
+    --foreground-color-2: #c400ff;
+    --text-color-1: white;
+    --text-color-2: black;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: var(--background-color);
+}
+
+h1, h2, h3, p {
+    color: var(--text-color-2);
+}
+
+.main {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 20px;
+    gap: 50px;
+}
+
+.content {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 100px;
+    padding: 20px;
+}
+
+.main-text {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.main-people-image {
+    width: 100%;
+    max-width: 400px;
+    min-width: 300px;
+}
+
+.people {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.about {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.main-description {
+    margin: 20px 0;
+}
+
+.logo {
+    width: 100px;
+}
+
+.people-image {
+    display: none;
+}
+
+button {
+    width: 100%;
+    padding: 10px 25px;
+    background-color: var(--foreground-color-1);
+    border-radius: 20px;
+    color: var(--text-color-1);
+    font-size: 1rem;
+    transition: all 300ms;
+    cursor: pointer;
+}
+
+button:hover {
+    background: var(--foreground-color-1);
+}
+
+button:active {
+    transform: scale(1.1);
+}
+
+.box {
+    width: 100%;
+    max-width: 1000px;
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 20px 0px rgb(0 0 0 / 10%);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.text-gradient {
+    background-color: var(--foreground-color-1);
+    background-image: linear-gradient(45deg, var(--foreground-color-1), var(--foreground-color-2));
+    background-size: 100%;
+    background-repeat: repeat;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+}
+
+.contact {
+    width: 100%;
+    max-width: 600px;
+}
+
+.contact-title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form {
+    border: 1px solid var(--foreground-color-1);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+textarea {
+    resize: vertical;
+    overflow-y: auto;
+    width: 100%;
+    min-height: 150px;
+    max-height: 250px;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+    border: solid 1px var(--foreground-color-1);
+}
+
+input {
+    width: 100%;
+    min-height: 50px;
+    padding: 10px;
+    border-bottom: solid 1px var(--foreground-color-1);
+}
+
+@media (max-width: 700px) {
+    .main-people-image {
+        display: none;
+    }
+
+    .people-image {
+        display: block;
+    }
+
+    .box {
+        padding: 50px 20px;
+    }
+}
+    </style>
+
+    <!-- Script (js) -->
+    <script>
+        const btnsSchedules = document.querySelectorAll("#btn-schedule");
+
+btnsSchedules.forEach(btn => {
+    btn.addEventListener('click', () => {
+        window.location.href = "https://example.com/"; // redirect URL
+    })
+})
+    </script>
+</body>
+</html>
